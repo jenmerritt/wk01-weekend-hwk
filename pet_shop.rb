@@ -46,25 +46,22 @@ def pets_by_breed(shop, breed_to_find)
   return pets_found
 end
 
-# find pets by name and return hash of pets found
+# find pets by name and return pet if found
 
 def find_pet_by_name(shop, name_to_find)
   for pet in shop[:pets]
     if pet[:name] == name_to_find
-      pet_name = { name: name_to_find }
+      pet_found = pet
     end
   end
-  return pet_name
+  return pet_found
 end
 
 # remove a specific pet from the pets array by name
 
 def remove_pet_by_name(shop, name_to_remove)
-  for pet in shop[:pets]
-    if pet[:name] == name_to_remove
-      shop[:pets].delete(pet)
-    end
-  end
+  pet_to_remove = find_pet_by_name(shop, name_to_remove)
+  shop[:pets].delete(pet_to_remove)
 end
 
 # add a new pet (hash) as new item in pets array
