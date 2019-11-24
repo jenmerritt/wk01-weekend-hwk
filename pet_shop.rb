@@ -26,7 +26,7 @@ def pets_by_breed(shop, breed_to_find)
   pets_found = []
   for pet in shop[:pets]
     if pet[:breed] == breed_to_find
-      pets_found.push(1)
+      pets_found.push(pet[:name])
     end
   end
   return pets_found
